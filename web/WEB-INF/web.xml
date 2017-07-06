@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee                                                            http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <!-- Servlets -->
+    <servlet>
+        <servlet-name>CreateRequestServlet</servlet-name>
+        <servlet-class>help.request.CreateRequestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AssignRequestServlet</servlet-name>
+        <servlet-class>help.request.AssignRequestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EmployeeLoginServlet</servlet-name>
+        <servlet-class>help.login.EmployeeLoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TechLoginServlet</servlet-name>
+        <servlet-class>help.login.TechLoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EmployeeResetServlet</servlet-name>
+        <servlet-class>help.login.EmployeeResetServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TechResetServlet</servlet-name>
+        <servlet-class>help.login.TechResetServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewEmployeeServlet</servlet-name>
+        <servlet-class>help.account.NewEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewTechServlet</servlet-name>
+        <servlet-class>help.account.NewTechServlet</servlet-class>
+    </servlet>
+    <!-- Servlet Mapping -->
+    <servlet-mapping>
+        <servlet-name>CreateRequestServlet</servlet-name>
+        <url-pattern>/createRequest</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AssignRequestServlet</servlet-name>
+        <url-pattern>/requestAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeeLoginServlet</servlet-name>
+        <url-pattern>/employeeLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TechLoginServlet</servlet-name>
+        <url-pattern>/techLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployeeResetServlet</servlet-name>
+        <url-pattern>/employeeReset</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TechResetServlet</servlet-name>
+        <url-pattern>/techReset</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewEmployeeServlet</servlet-name>
+        <url-pattern>/newEmployee</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewTechServlet</servlet-name>
+        <url-pattern>/newTech</url-pattern>
+    </servlet-mapping>
+    <!-- Page Errors -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error_404.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/error_java.jsp</location>
+    </error-page>
+    <!--  
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/admin/login.html</form-login-page>
+            <form-error-page>/admin/login_failure.html</form-error-page>
+        </form-login-config>
+    </login-config>
+    
+  <security-role>
+        <description>Web Administrator</description>
+        <role-name>Admin</role-name>
+    </security-role>
+    
+    <security-constraint>
+        <display-name>AdminConstraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>Admin</web-resource-name>
+            <description/>
+            <url-pattern>/admin/*</url-pattern>
+            
+        </web-resource-collection>
+        <auth-constraint>
+            <description>Web Admin</description>
+            <role-name>Admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    -->
+    <resource-ref>
+        <description>DB Connection</description>
+        <res-ref-name>jdbc/helpdesk</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+</web-app>

@@ -1,0 +1,146 @@
+
+/* 
+    Created on : Jun 29, 2017, 10:22:35 PM
+    Author     : jmarc
+*/
+
+
+img
+{
+    border-radius: 25px;
+}
+
+body
+{
+    font-family: Verdana, Arial, sans-serif;
+}
+
+nav
+{
+    width: auto;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+nav ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: none;
+}
+
+nav ul li
+{
+    display: inline;
+}
+
+nav a
+{
+    text-decoration: none;
+    padding: 20px;
+    border-bottom: 1px solid #FFFFFF;
+
+}
+
+nav a:link
+{
+    color: #FFF;
+}
+
+nav a:visited
+{
+    color: #EAEAEA;
+}
+
+nav a:hover
+{
+    color: #869DC7;
+    background-color: #EAEAEA;
+}
+
+main
+{
+
+    color: #000000;
+    padding: 10px 20px;
+    display: block;
+    overflow: auto;
+    border-radius: 25px;
+}
+
+footer
+{
+    font-size: 70%;
+    text-align: center;
+    padding: 10px;
+    clear: both;
+}
+
+h2
+{
+    color: #0A2351;
+    font-family: Arial, sans-serif;
+    
+}
+
+#floatright
+{
+    float: right;
+    margin: 10px;
+}
+
+
+form 
+{
+    display: inline;
+    width: 300px;
+    padding: 5px;
+    margin: 0 auto;
+
+}
+
+input[type=text], input[type=email], input[type=password], input[type=hidden], select {
+    width: 500px;
+    padding: 15px;
+    margin: 10px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 300px;
+    background-color: #0A2351;
+    color: whitesmoke;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #0A2351;
+}
+
+/* The styles for the tables */
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 50em;
+}
+th, td {
+    border: 1px solid black;
+    text-align: left;
+    padding: .5em;
+}
+.right {
+    text-align: right;
+}
+
+#rightcol
+{
+    margin-left: 155px;
+}
