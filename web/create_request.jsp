@@ -32,7 +32,8 @@ body {font-size:16px;}
   <div class="w3-bar-block">
     <a href="index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> 
     <a href="create_request.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Create Request</a> 
-    <a href=# onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">View My Request</a> 
+    <a href="EmployeeRequestServlet" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">My Open Requests</a>
+    <a href="EmployeeRequestServlet?action=closed_requests&amp;employeeId=${employee.employeeId}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">My Closed Requests</a>
   </div>
 </nav>
 

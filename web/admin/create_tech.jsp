@@ -75,10 +75,6 @@ body {font-size:16px;}
         <label>Email</label>
         <input class="w3-input w3-border" type="email" name="email" required>
       </div>
-      <div class="w3-section">
-        <label>Title</label>
-        <input class="w3-input w3-border" type="text" name="title" required>
-      </div>
       <br>
       <input type="submit" value="Create Tech" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">
     </form>  

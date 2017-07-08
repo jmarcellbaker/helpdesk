@@ -63,7 +63,7 @@ body {font-size:16px;}
     <form action="techReset" method="POST">
       <div class="w3-section">
         <label>Email</label>
-        <input class="w3-input w3-border" type="email" name="email" required>
+        <input class="w3-input w3-border" type="text" name="employeeId" required>
       </div>
       <div class="w3-section">
         <label>Password</label>

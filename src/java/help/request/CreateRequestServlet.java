@@ -38,6 +38,10 @@ public class CreateRequestServlet extends HttpServlet {
         String contactInfo = employee.getEmail();
         String description = "";
         String requestDate = "";
+        String requestStatus = "OPEN";
+        String notes = "";
+        String completionDate = "";
+        String technician = "";
         
         // set action to create request
         String action = request.getParameter("action");
@@ -70,6 +74,9 @@ public class CreateRequestServlet extends HttpServlet {
            // set status to open
            serviceRequest.setRequestStatus("OPEN");
            
+           // set employee
+           serviceRequest.setEmployee(employee);
+           
            // set tech, notes request date and completion date to blank values
            serviceRequest.setTechnician("");
            serviceRequest.setNotes("");
@@ -100,7 +107,7 @@ public class CreateRequestServlet extends HttpServlet {
                url = "/success_ticket.jsp";
                
                // set request date
-               String date = new SimpleDateFormat("MM.dd.yyyy").format(new Date());
+               String date = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss").format(new Date());
                serviceRequest.setRequestDate(date);
                
                // insert request into the database

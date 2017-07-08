@@ -17,21 +17,20 @@ import javax.persistence.Id;
 public class Employee implements Serializable {
     
     
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long employeeId;
+    @Id
+    private String employeeId;
     private String firstName;
     private String lastName;
-    @Id
     private String email;
     private String title;
     private String password;
     private String salt;
     
-    public Employee() {
+    /*public Employee() {
         
     }
     
-    public Employee(Long employeeId, String firstName, String email, String lastName,
+    public Employee(String employeeId, String firstName, String email, String lastName,
                     String title, String password, String salt) {
         this.employeeId = employeeId;
         this.firstName = firstName;
@@ -41,19 +40,19 @@ public class Employee implements Serializable {
         this.salt = salt;
         this.email = email;
         
-    }
+    }*/
     
         /**
      * @return the employeeId
      */
-    public Long getEmployeeId() {
+    public String getEmployeeId() {
         return employeeId;
     }
 
     /**
      * @param employeeId the employeeId to set
      */
-    public void setEmployeeId(Long employeeId) {
+    public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
 

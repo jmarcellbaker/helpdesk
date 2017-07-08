@@ -59,7 +59,7 @@ public class TechResetServlet extends HttpServlet {
         if (action.equals("techReset")) {
             
             // get parameters from request
-            String email = request.getParameter("email");
+            String employeeId = request.getParameter("employeeId");
             String password = request.getParameter("password");
             String message = "";
             String url = "/tech_reset.jsp";
@@ -68,15 +68,15 @@ public class TechResetServlet extends HttpServlet {
             Technician tech = new Technician();
             
             // set parameters
-            tech.setEmail(email);
+            tech.setEmployeeId(employeeId);
             tech.setPassword(password);
             
             HttpSession session = request.getSession();
             
             // Check if employee exist
-            if (TechnicianDB.techExists(tech.getEmail())) {
+            if (TechnicianDB.techExists(tech.getEmployeeId())) {
                 
-                tech = TechnicianDB.getTechnicianbyEmail(email);
+                tech = TechnicianDB.getTechnicianbyID(employeeId);
                 tech.setPassword(password);
                 
                 String hashedPassword;
@@ -109,7 +109,7 @@ public class TechResetServlet extends HttpServlet {
             
             else {
                 
-                message = "Email does not exist";
+                message = "ID does not exist";
                 url = "/tech_reset.jsp";
                 
                 request.setAttribute("message", message);

@@ -50,7 +50,7 @@ public class EmployeeLoginServlet extends HttpServlet {
         if (action.equals("employeeLogin")) {
             
             // create login parameters
-            String email = request.getParameter("email");
+            String employeeId = request.getParameter("employeeId");
             String password = request.getParameter("password");
             String url = "";
             
@@ -58,16 +58,16 @@ public class EmployeeLoginServlet extends HttpServlet {
             Employee employee = new Employee();
             
             // Set id and password
-            employee.setEmail(email);
+            employee.setEmployeeId(employeeId);
             employee.setPassword(password);
             
             HttpSession session = request.getSession();
             
             // Check if user exist
-            if (EmployeeDB.employeeExists(email)) {
+            if (EmployeeDB.employeeExists(employeeId)) {
                 
                 // Match with info in database
-                employee = EmployeeDB.getEmployeebyEmail(email);
+                employee = EmployeeDB.getEmployeebyID(employeeId);
                 
                 // 
                 String saltedPassword = employee.getSalt() + password;

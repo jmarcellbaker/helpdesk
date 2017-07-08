@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : Jul 5, 2017, 6:38:56 PM
+    Document   : view_employees
+    Created on : Jul 7, 2017, 10:50:17 PM
     Author     : jmarc
 --%>
 
@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<link rel="stylesheet" href="styles/main.css" type="text/css"> 
+<link rel="stylesheet" href="../styles/main.css" type="text/css"> 
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
@@ -30,10 +30,11 @@ body {font-size:16px;}
     <h3 class="w3-padding-64"><b>PATHWAY<br></b></h3>
   </div>
   <div class="w3-bar-block">
-    <a href="index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
-    <a href="employee_login.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Employee Login</a>
-    <a href="tech_login.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Technician Login</a> 
-    <a href="admin/admin.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Admin Login</a> 
+    <a href="../index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> 
+    <a href="create_tech.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Tech</a>
+    <a href="./newTech?action=view_techs" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Tech Account</a>
+    <a href="create_employee.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Employee</a>
+    <a href="./newEmployee?action=view_employees" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Employee Account</a>
   </div>
 </nav>
 
@@ -54,32 +55,40 @@ body {font-size:16px;}
     <h1 class="w3-jumbo"><b></b></h1>
   </div> -->
   
-  <!-- Employee Login -->
-  <div class="w3-container" id="contact" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Employee Login</b></h1>
-    <br>
-    <p>Login Below to Create or View your Service Request</p> 
-    <form action="employeeLogin" method="POST">
-      <div class="w3-section">
-        <label>Employee ID</label>
-        <input class="w3-input w3-border" type="text" name="employeeId" required>
-      </div>
-      <div class="w3-section">
-        <label>Password</label>
-        <input class="w3-input w3-border" type="password" name="password" required>
-      </div>
-        <input type="hidden" name="action" value="employeeLogin">
-      <br>
-      <input type="submit" value="Login" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">
-      <a href="employee_reset.jsp">Reset Password</a>
-    </form>  
-  </div>
+<!-- View Employees -->
+  <div class="w3-container" style="margin-top:75px">
+<h1 class="w3-xxxlarge w3-text-red"><b>Active Employee Accounts</b></h1>
+  <table class="w3-table-all w3-hoverable">
+  <tr>
+    <th>Employee ID</th>
+    <th>Email</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th colspan="2">Action</th>
+  </tr>
+
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+  <c:forEach var="employee" items="${employees}">
+  <tr>
+    <td>${employee.employeeId}</td>
+    <td>${employee.email}</td>
+    <td>${employee.firstName}</td>
+    <td>${employee.lastName}</td>
+    <td><a href="newEmployee?action=view_employee&amp;employeeId=${employee.employeeId}">Edit</a></td>
+    <td><a href="newEmployee?action=delete_employee">Delete</a></td>
+    
+  </tr>
+  </c:forEach>
+</table>
+</div>
+
+<p><a href="../newEmployee?action=view_employees">Refresh</a></p>
 
 <!-- End page content -->
 </div>
 
 <!-- Footer -->
-<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:170px;padding-right:58px"><p class="w3-right">Pathway Help Desk LLC</p></div>
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:550px;padding-right:58px"><p class="w3-right">Pathway Help Desk LLC</p></div>
 
 <script>
 // Script to open and close sidebar

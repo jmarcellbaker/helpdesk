@@ -30,7 +30,7 @@ body {font-size:16px;}
     <h3 class="w3-padding-64"><b>PATHWAY<br></b></h3>
   </div>
   <div class="w3-bar-block">
-    <a href="/index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> 
+    <a href="index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> 
     <a href="admin/create_tech.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Technician</a> 
     <a href="admin/create_employee.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Employee</a> 
   </div>
@@ -59,6 +59,7 @@ body {font-size:16px;}
     <br>
     <h2>Account created successfully</h2>
     <br>
+    <h3><b>Employee ID:</b> ${employee.employeeId}</h3>
     <h3><b>First Name:</b> ${employee.firstName}</h3>
     <h3><b>Last Name:</b> ${employee.lastName}</h3>
     <h3><b>Email:</b> ${employee.email}</h3>

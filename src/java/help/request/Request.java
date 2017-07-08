@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -34,13 +35,13 @@ public class Request implements Serializable {
  private String completionDate;
  private String notes;
  
- public Request () {
+ /*public Request () {
      
  }
    
 
- public Request (Long requestId, String requestStatus, String requestedBy, String contactInfo, String requestDate,
-                 String description, String technician, String completionDate, String notes) {
+ public Request (String requestStatus, String requestedBy, String contactInfo, String requestDate,
+                 String description, String technician, String completionDate, String notes, Employee employee) {
      
      this.requestId = requestId;
      this.requestStatus = requestStatus;
@@ -52,7 +53,7 @@ public class Request implements Serializable {
      this.notes = notes;
      this.employee = employee;
      
- }
+ }*/
 
     /**
      * @return the requestId
@@ -172,6 +173,14 @@ public class Request implements Serializable {
     
     public void setRequestedBy(String requestedBy) {
         this.requestedBy = requestedBy;
+    }
+    
+    public Employee getEmployee() {
+        return employee;
+    }
+    
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
  
  

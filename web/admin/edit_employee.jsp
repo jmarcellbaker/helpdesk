@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : Jul 5, 2017, 6:38:56 PM
+    Document   : edit_employee
+    Created on : Jul 7, 2017, 10:44:38 PM
     Author     : jmarc
 --%>
 
@@ -30,10 +30,11 @@ body {font-size:16px;}
     <h3 class="w3-padding-64"><b>PATHWAY<br></b></h3>
   </div>
   <div class="w3-bar-block">
-    <a href="index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
-    <a href="employee_login.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Employee Login</a>
-    <a href="tech_login.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Technician Login</a> 
-    <a href="admin/admin.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Admin Login</a> 
+    <a href="./index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> 
+    <a href="./admin/create_tech.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Tech</a>
+    <a href="./admin/view_techs.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Tech Account</a>
+    <a href="./admin/create_employee.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Employee</a>
+    <a href="./newEmployee?action=view_employees" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Employee Account</a>
   </div>
 </nav>
 
@@ -54,24 +55,30 @@ body {font-size:16px;}
     <h1 class="w3-jumbo"><b></b></h1>
   </div> -->
   
-  <!-- Employee Login -->
+  <!-- Create Tech -->
   <div class="w3-container" id="contact" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Employee Login</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Edit Employee Account</b></h1>
     <br>
-    <p>Login Below to Create or View your Service Request</p> 
-    <form action="employeeLogin" method="POST">
-      <div class="w3-section">
+    <p>Enter New Details</p> 
+    <form action="./newEmployee?action=update_employee" method="POST">
+      <!--<div class="w3-section">
         <label>Employee ID</label>
         <input class="w3-input w3-border" type="text" name="employeeId" required>
+      </div>-->
+       <div class="w3-section">
+        <label>First Name</label>
+        <input class="w3-input w3-border" type="text" name="firstName" value="${employee.firstName}" required>
+      </div>
+       <div class="w3-section">
+        <label>Last Name</label>
+        <input class="w3-input w3-border" type="text" name="lastName" value ="${employee.lastName}" required>
       </div>
       <div class="w3-section">
-        <label>Password</label>
-        <input class="w3-input w3-border" type="password" name="password" required>
+        <label>Email</label>
+        <input class="w3-input w3-border" type="email" name="email" value="${employee.email}" required>
       </div>
-        <input type="hidden" name="action" value="employeeLogin">
       <br>
-      <input type="submit" value="Login" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">
-      <a href="employee_reset.jsp">Reset Password</a>
+      <input type="submit" value="Update" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">
     </form>  
   </div>
 
@@ -79,7 +86,7 @@ body {font-size:16px;}
 </div>
 
 <!-- Footer -->
-<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:170px;padding-right:58px"><p class="w3-right">Pathway Help Desk LLC</p></div>
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:58px;padding-right:58px"><p class="w3-right">Pathway Help Desk LLC</p></div>
 
 <script>
 // Script to open and close sidebar
@@ -104,3 +111,4 @@ function onClick(element) {
 
 </body>
 </html>
+

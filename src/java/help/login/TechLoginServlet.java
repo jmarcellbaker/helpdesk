@@ -56,7 +56,7 @@ public class TechLoginServlet extends HttpServlet {
         if (action.equals("techLogin")) {
             
             // create login parameters
-            String email = request.getParameter("email");
+            String employeeId = request.getParameter("employeeId");
             String password = request.getParameter("password");
             String url = "";
             
@@ -64,16 +64,16 @@ public class TechLoginServlet extends HttpServlet {
             Technician tech = new Technician();
             
             // Set id and password
-            tech.setEmail(email);
+            tech.setEmployeeId(employeeId);
             tech.setPassword(password);
             
             HttpSession session = request.getSession();
             
             // Check if user exist
-            if (TechnicianDB.techExists(email)) {
+            if (TechnicianDB.techExists(employeeId)) {
                 
                 // Match with info in database
-                tech = TechnicianDB.getTechnicianbyEmail(email);
+                tech = TechnicianDB.getTechnicianbyID(employeeId);
                 
                 // 
                 String saltedPassword = tech.getSalt() + password;

@@ -49,13 +49,29 @@ public class EmployeeDB {
         }
     }
     
+    // Delete Employee
+    public static void delete(Employee employee) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        trans.begin();        
+        try {
+            em.remove(em.merge(employee));
+            trans.commit();
+        } catch (Exception e) {
+            System.out.println(e);
+            trans.rollback();
+        } finally {
+            em.close();
+        }       
+    }
+    
     // Select Employee by Employee ID
-    public static Employee selectEmployee(String email) {
+    public static Employee selectEmployee(String employeeId) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         String qString = "SELECT e FROM Employee e " +
-                "WHERE e.email = :email";
+                "WHERE e.employeeId = :employeeId";
         TypedQuery<Employee> q = em.createQuery(qString, Employee.class);
-        q.setParameter("email", email);
+        q.setParameter("employeeId", employeeId);
         try {
             Employee employee = q.getSingleResult();
             return employee;
@@ -67,16 +83,16 @@ public class EmployeeDB {
     }
     
     // Check in Employee ID exist
-    public static boolean employeeExists(String email) {
-        Employee e = selectEmployee(email);   
+    public static boolean employeeExists(String employeeId) {
+        Employee e = selectEmployee(employeeId);   
         return e != null;
     }
     
     // get by Employee ID
-    public static Employee getEmployeebyEmail(String email) {
+    public static Employee getEmployeebyID(String employeeId) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         try {
-            Employee employee = em.find(Employee.class, email);
+            Employee employee = em.find(Employee.class, employeeId);
             return employee;
         } finally {
             em.close();
@@ -84,12 +100,12 @@ public class EmployeeDB {
     }
     
     // Login 
-    public static Employee login(String email, String password) {
+    public static Employee login(String employeeId, String password) {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         String qString = "SELECT e FROM Employee e " +
-                "WHERE e.email = :email AND e.password = :password";
+                "WHERE e.employeeId = :employeeId AND e.password = :password";
         TypedQuery<Employee> q = em.createQuery(qString, Employee.class);
-        q.setParameter("email", email);
+        q.setParameter("employeeId", employeeId);
         q.setParameter("password", password);
         try {
             Employee employee = q.getSingleResult();
@@ -102,8 +118,8 @@ public class EmployeeDB {
     }
     
     // Check if Login Exist
-    public static boolean loginExist(String email, String password) {
-    Employee e = login(email, password);   
+    public static boolean loginExist(String employeeId, String password) {
+    Employee e = login(employeeId, password);   
     return e != null;
     }
     

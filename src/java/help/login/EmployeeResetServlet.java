@@ -58,7 +58,7 @@ public class EmployeeResetServlet extends HttpServlet {
         if (action.equals("employeeReset")) {
             
             // get parameters from request
-            String email = request.getParameter("email");
+            String employeeId = request.getParameter("employeeId");
             String password = request.getParameter("password");
             String message = "";
             String url = "/employee_reset.jsp";
@@ -67,7 +67,7 @@ public class EmployeeResetServlet extends HttpServlet {
             Employee employee = new Employee();
             
             // set parameters
-            employee.setEmail(email);
+            employee.setEmployeeId(employeeId);
             employee.setPassword(password);
             
             HttpSession session = request.getSession();
@@ -75,7 +75,7 @@ public class EmployeeResetServlet extends HttpServlet {
             // Check if employee exist
             if (EmployeeDB.employeeExists(employee.getEmail())) {
                 
-                employee = EmployeeDB.getEmployeebyEmail(email);
+                employee = EmployeeDB.getEmployeebyID(employeeId);
                 employee.setPassword(password);
                 
                 String hashedPassword;
@@ -108,7 +108,7 @@ public class EmployeeResetServlet extends HttpServlet {
             
             else {
                 
-                message = "Email does not exist";
+                message = "ID does not exist";
                 url = "/employee_reset.jsp";
                 
                 request.setAttribute("message", message);

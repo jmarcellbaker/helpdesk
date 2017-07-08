@@ -29,7 +29,8 @@ public class RequestDB {
     public static List<Request> selectRequests() {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         String qString = "SELECT r FROM Request r " +
-                         "WHERE r.requestStatus = 'OPEN'";
+                         "WHERE r.requestStatus = 'OPEN'" +
+                         "AND r.technician = ''";
                          //"AND r.Technician = 'null'";
         TypedQuery<Request> q = em.createQuery(qString, Request.class);
 
@@ -95,5 +96,81 @@ public class RequestDB {
         } finally {
             em.close();
         }
-    } 
+    }
+   
+   // select all employee open request  
+    public static List<Request> selectOpenEmployeeRequests(String employeeId) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        String qString = "SELECT r FROM Request r " +
+                         "WHERE r.employee.employeeId = :employeeId " +
+                         "AND r.requestStatus = 'OPEN'";
+        TypedQuery<Request> q = em.createQuery(qString, Request.class);
+        q.setParameter("employeeId", employeeId);
+        List<Request> serviceRequests;
+        try {
+            serviceRequests = q.getResultList();
+            if (serviceRequests == null || serviceRequests.isEmpty())
+                serviceRequests = null;
+        } finally {
+            em.close();
+        }
+        return serviceRequests;
+    }
+    
+    // select all employee closed request  
+    public static List<Request> selectClosedEmployeeRequests(String employeeId) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        String qString = "SELECT r FROM Request r " +
+                         "WHERE r.employee.employeeId = :employeeId " +
+                         "AND r.requestStatus = 'CLOSED'";
+        TypedQuery<Request> q = em.createQuery(qString, Request.class);
+        q.setParameter("employeeId", employeeId);
+        List<Request> serviceRequests;
+        try {
+            serviceRequests = q.getResultList();
+            if (serviceRequests == null || serviceRequests.isEmpty())
+                serviceRequests = null;
+        } finally {
+            em.close();
+        }
+        return serviceRequests;
+    }
+    
+    // select all tech open request  
+    public static List<Request> selectOpenTechRequests(String techName) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        String qString = "SELECT r FROM Request r " +
+                         "WHERE r.technician = :techName " +
+                         "AND r.requestStatus = 'OPEN'";
+        TypedQuery<Request> q = em.createQuery(qString, Request.class);
+        q.setParameter("techName", techName);
+        List<Request> serviceRequests;
+        try {
+            serviceRequests = q.getResultList();
+            if (serviceRequests == null || serviceRequests.isEmpty())
+                serviceRequests = null;
+        } finally {
+            em.close();
+        }
+        return serviceRequests;
+    }
+    
+    // select all tech closed request  
+    public static List<Request> selectClosedTechRequests(String techName) {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        String qString = "SELECT r FROM Request r " +
+                         "WHERE r.technician = :techName " +
+                         "AND r.requestStatus = 'CLOSED'";
+        TypedQuery<Request> q = em.createQuery(qString, Request.class);
+        q.setParameter("techName", techName);
+        List<Request> serviceRequests;
+        try {
+            serviceRequests = q.getResultList();
+            if (serviceRequests == null || serviceRequests.isEmpty())
+                serviceRequests = null;
+        } finally {
+            em.close();
+        }
+        return serviceRequests;
+    }
 }

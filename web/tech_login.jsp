@@ -58,11 +58,11 @@ body {font-size:16px;}
   <div class="w3-container" id="contact" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-red"><b>Technician Login</b></h1>
     <br>
-    <p>Login Below to Assign or Work your Service Request</p> 
+    <p>Login Below to Assign or Work Service Request</p> 
     <form action="techLogin" method="POST">
       <div class="w3-section">
-        <label>Email</label>
-        <input class="w3-input w3-border" type="email" name="email" required>
+        <label>Employee ID</label>
+        <input class="w3-input w3-border" type="text" name="employeeId" required>
       </div>
       <div class="w3-section">
         <label>Password</label>

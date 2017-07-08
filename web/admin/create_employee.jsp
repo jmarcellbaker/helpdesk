@@ -53,7 +53,7 @@ body {font-size:16px;}
     <h1 class="w3-jumbo"><b></b></h1>
   </div> -->
   
-  <!-- Create Tech -->
+  <!-- Create Employee -->
   <div class="w3-container" id="contact" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-red"><b>New Employee Account</b></h1>
     <br>
@@ -74,10 +74,6 @@ body {font-size:16px;}
       <div class="w3-section">
         <label>Email</label>
         <input class="w3-input w3-border" type="email" name="email" required>
-      </div>
-      <div class="w3-section">
-        <label>Title</label>
-        <input class="w3-input w3-border" type="text" name="title" required>
       </div>
       <br>
       <input type="submit" value="Create Employee" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">

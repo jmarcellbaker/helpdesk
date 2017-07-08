@@ -1,6 +1,6 @@
 <%-- 
-    Document   : request
-    Created on : Jul 1, 2017, 10:13:19 PM
+    Document   : tech_addnotes
+    Created on : Jul 7, 2017, 9:42:41 PM
     Author     : jmarc
 --%>
 
@@ -56,11 +56,11 @@ body {font-size:16px;}
   <!-- Assign Ticket -->
   <div class="w3-container" id="contact" style="margin-top:75px">
       
-    <h1 class="w3-xxxlarge w3-text-red"><b>Assign Request</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Add Notes</b></h1>
     <br>
-    <p>Review Info, Add Notes and Submit</p>
+    <p>Add Notes and Submit</p>
         <form action="requestAdmin" method="POST">
-        <input type="hidden" name="action" value="assign_request">
+        <input type="hidden" name="action" value="notes_request">
         <div class="w3-section">
         <label>Request ID:</label>
         <input type="text" name="requestId" value="${serviceRequest.requestId}" readonly><br>
@@ -98,7 +98,7 @@ body {font-size:16px;}
         <input type="text" name="notes" value="${serviceRequest.notes}"><br>
         </div>
         <label>&nbsp;</label>
-        <input type="submit" value="Assign" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">
+        <input type="submit" value="Save Notes" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">
     </form>
         
      <!-- End page content -->

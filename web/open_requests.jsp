@@ -29,8 +29,9 @@ body {font-size:16px;}
   </div>
   <div class="w3-bar-block">
     <a href="index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> 
-    <a href="open_requests.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Open Requests</a> 
-    <a href=# onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">My Assigned Requests</a> 
+    <a href="requestAdmin" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Open Requests</a> 
+    <a href="TechRequestServlet" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">My Assigned Requests</a>
+    <a href="TechRequestServlet?action=closed_requests&amp;techName=${tech.firstName} ${tech.lastName}" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">My Closed Requests</a>
   </div>
 </nav>
 
@@ -65,7 +66,7 @@ body {font-size:16px;}
     <th>Technician</th>
     <th>Completion Date</th>
     <th>Notes</th>
-    <th colspan="3">Action</th>
+    <th colspan="2">Action</th>
   </tr>
 
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -81,7 +82,6 @@ body {font-size:16px;}
     <td>${request.completionDate}</td>
     <td>${request.notes}</td>
     <td><a href="requestAdmin?action=display_request&amp;requestId=${request.requestId}">Assign</a></td>
-    <td><a href="requestAdmin?action=close_request&amp;requestId=${request.requestId}">Close</a></td>
   </tr>
   </c:forEach>
 </table>
