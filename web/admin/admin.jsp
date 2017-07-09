@@ -30,7 +30,9 @@ body {font-size:16px;}
     <h3 class="w3-padding-64"><b>PATHWAY<br></b></h3>
   </div>
   <div class="w3-bar-block">
-    <a href="../index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> 
+    <a href="../index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
+    <a href="../RequestServlet" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">View Open Requests</a>
+    <a href="../RequestServlet?action=view_closed" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">View Closed Requests</a>
     <a href="create_tech.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Tech</a>
     <a href="../newTech?action=view_techs" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Tech Account</a>
     <a href="create_employee.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Employee</a>

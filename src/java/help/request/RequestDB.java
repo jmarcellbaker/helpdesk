@@ -173,4 +173,40 @@ public class RequestDB {
         }
         return serviceRequests;
     }
+    
+    // select all open request  
+    public static List<Request> selectAllOpenRequests() {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        String qString = "SELECT r FROM Request r " +
+                         "WHERE r.requestStatus = 'OPEN'";
+        TypedQuery<Request> q = em.createQuery(qString, Request.class);
+
+        List<Request> serviceRequests;
+        try {
+            serviceRequests = q.getResultList();
+            if (serviceRequests == null || serviceRequests.isEmpty())
+                serviceRequests = null;
+        } finally {
+            em.close();
+        }
+        return serviceRequests;
+    }
+    
+    // select all closed request 
+    public static List<Request> selectAllClosedRequests() {
+        EntityManager em = DBUtil.getEmFactory().createEntityManager();
+        String qString = "SELECT r FROM Request r " +
+                         "WHERE r.requestStatus = 'CLOSED'";
+        TypedQuery<Request> q = em.createQuery(qString, Request.class);
+
+        List<Request> serviceRequests;
+        try {
+            serviceRequests = q.getResultList();
+            if (serviceRequests == null || serviceRequests.isEmpty())
+                serviceRequests = null;
+        } finally {
+            em.close();
+        }
+        return serviceRequests;
+    }
 }

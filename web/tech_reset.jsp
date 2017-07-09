@@ -62,7 +62,7 @@ body {font-size:16px;}
     <h4 class="w3-text-red">${message}</h4>
     <form action="techReset" method="POST">
       <div class="w3-section">
-        <label>Email</label>
+        <label>Employee ID</label>
         <input class="w3-input w3-border" type="text" name="employeeId" required>
       </div>
       <div class="w3-section">

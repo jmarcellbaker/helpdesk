@@ -94,7 +94,7 @@ body {font-size:16px;}
 </div>
 
 <!-- Footer -->
-<div class="w3-light-grey w3-container w3-padding-32" style="height:100px;position:absolute;bottom:0"><p class="w3-right">Pathway Help Desk LLC</p></div>
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:422px;padding-right:58px"><p class="w3-right">Pathway Help Desk LLC</p></div>
 
 <script>
 // Script to open and close sidebar

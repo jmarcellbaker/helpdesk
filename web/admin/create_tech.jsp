@@ -31,8 +31,12 @@ body {font-size:16px;}
   </div>
   <div class="w3-bar-block">
     <a href="../index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> 
-    <a href="create_tech.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Technician</a> 
-    <a href="create_employee.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Employee</a> 
+    <a href="../RequestServlet" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">View Open Requests</a>
+    <a href="../RequestServlet?action=view_closed" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">View Closed Requests</a>
+    <a href="create_tech.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Tech</a>
+    <a href="../newTech?action=view_techs" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Tech Account</a>
+    <a href="create_employee.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Employee</a>
+    <a href="../newEmployee?action=view_employees" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Employee Account</a>
   </div>
 </nav>
 
@@ -57,7 +61,7 @@ body {font-size:16px;}
   <div class="w3-container" id="contact" style="margin-top:75px">
     <h1 class="w3-xxxlarge w3-text-red"><b>New Tech Account</b></h1>
     <br>
-    <p>Enter Details for New Technician</p> 
+    <p>Enter Details for New Tech</p> 
     <form action="../newTech" method="POST">
       <!--<div class="w3-section">
         <label>Employee ID</label>

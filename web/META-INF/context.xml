@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/HelpDesk"/>
+<Context path="/HelpDesk">
+    
+    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" logAbandoned="true" 
+            maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/helpdesk" password="sesame" 
+            removeAbandoned="true" removeAbandonedTimeout="60" type="javax.sql.DataSource" 
+            url="jdbc:mysql://localhost:3306/helpdesk?autoReconnect=true" username="root"/>
+  
+  <Realm className="org.apache.catalina.realm.DataSourceRealm" debug="99" dataSourceName="jdbc/helpdesk" 
+         localDataSource="true" userTable="UserPass" userNameCol="Username" userCredCol="Password" 
+         userRoleTable="UserRole" roleNameCol="Rolename"/>
+  
+</Context>

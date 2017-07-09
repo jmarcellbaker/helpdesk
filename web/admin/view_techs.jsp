@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<link rel="stylesheet" href="../styles/main.css" type="text/css"> 
+<link rel="stylesheet" href="styles/main.css" type="text/css"> 
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
@@ -30,10 +30,12 @@ body {font-size:16px;}
     <h3 class="w3-padding-64"><b>PATHWAY<br></b></h3>
   </div>
   <div class="w3-bar-block">
-    <a href="../index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a> 
-    <a href="create_tech.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Tech</a>
-    <a href="view_techs.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Tech Account</a>
-    <a href="create_employee.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Employee</a>
+    <a href="./index.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Logout</a>
+    <a href="./RequestServlet" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">View Open Requests</a>
+    <a href="./RequestServlet?action=view_closed" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">View Closed Requests</a>
+    <a href="./admin/create_tech.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Tech</a>
+    <a href="./newTech?action=view_techs" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Tech Account</a>
+    <a href="./admin/create_employee.jsp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">New Employee</a>
     <a href="./newEmployee?action=view_employees" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Manage Employee Account</a>
   </div>
 </nav>
@@ -75,20 +77,20 @@ body {font-size:16px;}
     <td>${tech.firstName}</td>
     <td>${tech.lastName}</td>
     <td><a href="newTech?action=view_tech&amp;employeeId=${tech.employeeId}">Edit</a></td>
-    <td><a href="newTech?action=delete_tech">Delete</a></td>
+    <td><a href="newTech?action=delete_tech&amp;employeeId=${tech.employeeId}">Delete</a></td>
     
   </tr>
   </c:forEach>
 </table>
 </div>
 
-<p><a href="../newTech?action=view_techs">Refresh</a></p>
+<p><a href="./newTech?action=view_techs">Refresh</a></p>
 
 <!-- End page content -->
 </div>
 
 <!-- Footer -->
-<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:550px;padding-right:58px"><p class="w3-right">Pathway Help Desk LLC</p></div>
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:540px;padding-right:58px"><p class="w3-right">Pathway Help Desk LLC</p></div>
 
 <script>
 // Script to open and close sidebar

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index2
-    Created on : Jul 3, 2017, 3:54:29 PM
+    Document   : admin_login
+    Created on : Jul 8, 2017, 11:30:15 PM
     Author     : jmarc
 --%>
 
@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<link rel="stylesheet" href="styles/main.css" type="text/css"> 
+<link rel="stylesheet" href="../styles/main.css" type="text/css"> 
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
@@ -54,18 +54,30 @@ body {font-size:16px;}
     <h1 class="w3-jumbo"><b></b></h1>
   </div> -->
   
-  <!-- Error -->
+  <!-- Admin Pathway -->
   <div class="w3-container" id="contact" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Login Error</b></h1>
-    <h3 class="w3-xlarge w3-text-red"><b>ID or Password provided is incorrect</b></h3>
-    <h2 class="w3-xlarge w3-text-black">&larr; Please Try Again </h2>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Admin Login</b></h1>
+    <br>
+    <p>Enter Your Username and Password</p>
+    <form action="j_security_check" method="POST">
+        <div class="w3-section">
+        <label>Username</label>
+        <input class="w3-input w3-border" type="text" name="j_username"><br>
+        </div>
+        <div class="w3-section">
+        <label>Password</label>
+        <input class="w3-input w3-border" type="password" name="j_password"><br>
+        </div>
+        <label>&nbsp;</label>
+        <input type="submit" value="Login" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">
+    </form>
   </div>
 
 <!-- End page content -->
 </div>
 
 <!-- Footer -->
-<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:528px;padding-right:58px"><p class="w3-right">Pathway Help Desk LLC</p></div>
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:530px;padding-right:58px"><p class="w3-right">Pathway Help Desk LLC</p></div>
 
 <script>
 // Script to open and close sidebar
